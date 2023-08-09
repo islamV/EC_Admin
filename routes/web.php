@@ -18,6 +18,7 @@ Route::get('/', function () {
 })->name('dashbord');
 
 Route::resource('Users/EmployeeList' ,'EmployeeController');
+Route::resource('Users/CustomerList' ,'UsersController');
 Route::resource('dashbord/ProductList' ,'ProductController');
 route::get('home' , function(){
     return view('pages.home');

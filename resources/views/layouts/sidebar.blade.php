@@ -49,13 +49,13 @@
                         <ul class="nav flex-column">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/cards.html">Laptops & Computers <span class="badge badge-success">New</span></a>
+                                <a class="nav-link" href="pages/cards.html">Laptops & Computers <span class="label label-sm label-success"> New</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/cards.html">Smart Phones <span class="badge badge-success">New</span></a>
+                                <a class="nav-link" href="pages/cards.html">Smart Phones <span class="label label-sm label-success"> New</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/cards.html"> Smart TV<span class="badge badge-success">New</span></a>
+                                <a class="nav-link" href="pages/cards.html"> Smart TV  <span class="label label-sm label-success"> New</span></a>
                             </li>
                         </ul>
                     </div>
@@ -64,15 +64,13 @@
                     <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-users"></i>Users</a>
                     <div id="submenu-2" class="collapse submenu" style="">
                         <ul class="nav flex-column">
-                    
-                            <li class="nav-item">
-                                <a class="nav-link" href="pages/cards.html">Admin <span class="badge badge-success">New</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pages/cards.html">Customer <span class="badge badge-success">New</span></a>
-                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('EmployeeList.index')}}?namepage=Employee list">Employee <span class="badge badge-success">New</span></a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('CustomerList.index')}}?namepage=Customer list">Customer <span class="badge badge-success">New</span></a>
                             </li>
                         </ul>
                     </div>

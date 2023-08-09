@@ -16,11 +16,13 @@
                                                 <th>Name</th>
                                                 <th>Position</th>
                                                 <th>Office</th>
+                                                <th>Role</th>
                                                 <th>Email</th>
                                                 <th>phone</th>
                                                 <th>Age</th>
                                                 <th>Start date</th>
                                                 <th>Salary</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -29,11 +31,20 @@
                                                 <td>Islam Abdelkarim</td>
                                                 <td>chief executive officer (CEO)</td>
                                                 <td>Egypt</td>
+                                                <td><span class="label label-sm label-danger">Admin</span></td>
                                                 <td>dx@islam1.cf</td>
                                                 <td>(+20)1014132962</td>
                                                 <td>20</td>
                                                 <td>28/7/2022</td>
                                                 <td>$300,000</td>
+                                            <td>
+                                                <form action="">
+                                                    <button class="btn btn-sm btn-outline-light">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-light">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
                                             </tr>
                                         </tbody>
                                         <tfoot>

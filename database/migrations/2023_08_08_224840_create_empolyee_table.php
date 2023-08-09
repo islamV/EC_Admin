@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("name");
             $table->string('Position');
             $table->string('Office');
+            $table->string('role');
             $table->string('email');
             $table->string('phone');
             $table->integer('age');
