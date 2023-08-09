@@ -7437,49 +7437,12 @@ Media Query
         padding: 131px 28px;
     }
 
-    .influencer-profile-data .user-social-media {
-        padding: 16px 56px;
-        text-align: center;
-        border-right: 1px solid #e6e6f2;
-    }
-}
-
-@media only screen and (max-width:1200px) {
-    .product-price {
-        position: initial;
-    }
-
-    .product-slider {
-        padding: 131px 30px;
-    }
-
-    /*--------- dashboard-influence -------- */
-    .user-social-media {
-        padding: 16px 45px;
-        text-align: center;
-        width: 100%;
-        border-bottom: 1px solid #dee2e6;
-        border-right: transparent !important;
-    }
-
-
+   
 }
 
 
-/* Medium Devices, Desktops */
 
-@media only screen and (max-width:992px) {
 
-    /*--------- dashboard-influence -------- */
-    .user-social-media {
-        padding: 16px 45px;
-        text-align: center;
-        width: 100%;
-        border-bottom: 1px solid #dee2e6;
-        border-right: transparent !important;
-    }
-
-}
 
 
 /* Small Devices, Tablets */
@@ -7500,9 +7463,9 @@ Media Query
 
     .nav-left-sidebar {
         width: 100%;
-        position: relative;
-        top: 0;
-        right: 0;
+        position:relative;
+        top: 0px;
+        right: 0px;
     }
 
     .dashboard-wrapper {
