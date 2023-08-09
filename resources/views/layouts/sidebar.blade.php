@@ -19,10 +19,10 @@
                                   <div id="submenu-1-2" class="collapse submenu" style="">
                                       <ul class="nav flex-column">
                                           <li class="nav-item">
-                                              <a class="nav-link" href="{{route('dashbord')}}?namepage=Dashbord">E Commerce Dashboard</a>
+                                              <a class="nav-link" href="{{route('dashbord')}}">E Commerce Dashboard</a>
                                           </li>
                                           <li class="nav-item">
-                                              <a class="nav-link" href="{{route('ProductList.index')}}?namepage= Product list">Product List</a>
+                                              <a class="nav-link" href="{{route('ProductList.index')}}">Product List</a>
                                           </li>
                                           <li class="nav-item">
                                               <a class="nav-link" href="ecommerce-product-single.html">Product Single</a>
@@ -66,11 +66,11 @@
                         <ul class="nav flex-column">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('EmployeeList.index')}}?namepage=Employee list">Employee <span class="badge badge-success">New</span></a>
+                                <a class="nav-link" href="{{route('EmployeeList.index')}}">Employee <span class="badge badge-success">New</span></a>
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('CustomerList.index')}}?namepage=Customer list">Customer <span class="badge badge-success">New</span></a>
+                                <a class="nav-link" href="{{route('CustomerList.index')}}">Customer <span class="badge badge-success">New</span></a>
                             </li>
                         </ul>
                     </div>

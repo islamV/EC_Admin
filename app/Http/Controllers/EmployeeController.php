@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\Employee ;
+
 
 class EmployeeController extends Controller
 {
@@ -11,7 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('pages.users.employee_list')->with('namepage','Employeelist');
+       $employee= Employee::get();
+        return view('pages.users.employee.employee_list',compact('employee'));
     }
 
     /**
@@ -19,7 +23,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+       return view('pages.users.employee.create_emp');
     }
 
     /**
@@ -27,7 +31,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
