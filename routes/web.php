@@ -16,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 })->name('dashbord');
-
-Route::resource('EmployeeList' ,'EmployeeController');
-Route::resource('CustomerList' ,'UsersController');
-Route::resource('ProductList' ,'ProductController');
+Route::prefix('Users')->group(function () {
+    
+    Route::resource('EmployeeList' ,'EmployeeController');
+    Route::resource('CustomerList' ,'UsersController');
+});
+Route::prefix('dashbord')->group(function () {
+    Route::resource('ProductList' ,'ProductController');
+    
+});
 route::get('home' , function(){
     return view('pages.home');
 })->name('home');

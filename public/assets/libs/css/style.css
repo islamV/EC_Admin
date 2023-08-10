@@ -1217,7 +1217,7 @@ Legends
 
 /*-----------------------
 Top Header
--------------------------*/
+-------------------------*/ 
 
 .t-header {
     display: flex;
@@ -1869,6 +1869,52 @@ Top Header
     background: rgba(255, 255, 255, 0.5);
 }
 
+/* Notification */
+.nav-user-dropdown {
+    padding: 0px;
+    min-width: 230px;
+    margin: 0px;
+}
+
+.nav-user-name {}
+
+.nav-user-info {
+    background-color: #1f1842;
+    line-height: 1.4;
+    padding: 12px;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 2px 2px 0 0;
+}
+
+.nav-user-info .status {
+    float: left;
+    top: 7px;
+    left: 0px;
+}
+
+.nav-user-dropdown {}
+
+.nav-user-dropdown .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 12px 22px 15px;
+    clear: both;
+    font-weight: 400;
+    color: #686972;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    font-size: 13px;
+    line-height: 0.4;
+}
+
+.nav-user-dropdown .dropdown-item:hover {
+    background-color: #f7f7fb;
+}
+
+    
 
 .img-ss {
     width: 15px;

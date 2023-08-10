@@ -11,8 +11,13 @@
 
             </div>
             <div>
-                <a href="EmployeeList/create" class="btn btn-rounded btn-primary">Add Employee</a>
+                <a href="{{ route('EmployeeList.create') }}" class="btn btn-rounded btn-primary">Add Employee</a>
             </div>
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="card-body">
                 <div class="table-responsive">
 
@@ -32,8 +37,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                @foreach ($employees as $employee)
+                            @foreach ($employees as $employee)
+                                <tr>
                                     <td>{{ $employee->name }}</td>
                                     <td>{{ $employee->position }}</td>
                                     <td>{{ $employee->role }}</td>
@@ -44,15 +49,18 @@
                                     <td>{{ $employee->salary }}</td>
                                     <td>{{ $employee->created_at }}</td>
                                     <td>
+                                        <a href="{{route('EmployeeList.show',['EmployeeList'=>$employee->id])}}" class="btn btn-sm btn-outline-primary">View</a>
                                         <form action="">
-                                            <button class="btn btn-sm btn-outline-light">Edit</button>
-                                            <button class="btn btn-sm btn-outline-light">
-                                                <i class="far fa-trash-alt"></i>
-                                            </button>
+                                            <button class="btn btn-sm btn-outline-dark"type="submit"
+                                                name="edit">Edit</button>
+                                        </form>
+                                        <form action="">
+                                            <button class="btn btn-sm btn-outline-danger"type="submit" name='trash'> <i
+                                                    class="far fa-trash-alt"></i>
                                         </form>
                                     </td>
-                                @endforeach
-                            </tr>
+                                </tr>
+                            @endforeach
                         </tbody>
                         <tfoot>
 

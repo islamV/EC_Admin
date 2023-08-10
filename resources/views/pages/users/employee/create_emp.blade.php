@@ -44,9 +44,8 @@
                             <select class="form-control" id="input-select" name="role" >
                                 <option value="admin">Admin</option>
                                 <option value="manger" >Manger</option>
-                                <option value="team leader">Team leader </option>
-                                <option value="junior">Junior</option>
-                                <option value="senior">Senior</option>
+                                <option value="employee">Employee</option>
+                             
                             </select>
                         </div>
                         <div class="form-group">

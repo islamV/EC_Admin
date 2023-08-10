@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("name");
             $table->string('position');
             $table->string('office');
-            $table->enum('role',['admin','manger','team leader', 'junior' ,'senior']);
+            $table->enum('role' ,['admin','manger','employee'])->nullable();
             $table->string('email');
             $table->string('phone');
             $table->string('age');

@@ -14,8 +14,7 @@ class EmployeeController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $employees = Employee::get();
+    {        $employees = Employee::orderBy('created_at','desc')->get();
         return view('pages.users.employee.employee_list', compact('employees'));
     }
 
@@ -24,7 +23,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('pages.users.employee.create_emp');
+        return view('pages.users.employee.create');
     }
 
     /**
@@ -39,12 +38,12 @@ class EmployeeController extends Controller
             'phone' => 'required|string',
             'position' => 'required|string',
             'office' => 'required|string',
-            'role' => 'required|in:admin,manger ,team leader ,junior ,senior',
+            'role' => 'required|in:admin,manger,employee',
             'age' => 'required|string',
             'salary' => 'required|string'
         ]);
         Employee::create($data);
-        return redirect('EmployeeList')->with(['success' => 'Adding new employee successfuly']);
+        return redirect('Users/EmployeeList')->with(['success' => 'Adding new employee successfuly']);
     }
 
     /**
@@ -52,7 +51,9 @@ class EmployeeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $employees = Employee::find($id);
+        
+        return view('pages.users.employee.view',compact('employees'));
     }
 
     /**
@@ -60,7 +61,6 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
-        //
     }
 
     /**
