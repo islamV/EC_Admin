@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('index');
 })->name('dashbord');
 
-Route::resource('Users/EmployeeList' ,'EmployeeController');
-Route::resource('Users/CustomerList' ,'UsersController');
-Route::resource('dashbord/ProductList' ,'ProductController');
+Route::resource('EmployeeList' ,'EmployeeController');
+Route::resource('CustomerList' ,'UsersController');
+Route::resource('ProductList' ,'ProductController');
 route::get('home' , function(){
     return view('pages.home');
 })->name('home');

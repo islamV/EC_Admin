@@ -11,17 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('empolyees', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string('Position');
-            $table->string('Office');
-            $table->enum('role' ,['admin','manger','team leader', 'junior' ,'senior']);
+            $table->string('position');
+            $table->string('office');
+            $table->enum('role',['admin','manger','team leader', 'junior' ,'senior']);
             $table->string('email');
             $table->string('phone');
-            $table->integer('age');
-            $table->date('start_date');
-            $table->float('salary')->default(0);
+            $table->string('age');
+            $table->string('salary');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('empolyees');
+        Schema::dropIfExists('employees');
     }
 };

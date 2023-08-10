@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\Employee ;
+use App\Models\Employee;
 
 
 class EmployeeController extends Controller
@@ -14,8 +15,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-       $employee= Employee::get();
-        return view('pages.users.employee.employee_list',compact('employee'));
+        $employees = Employee::get();
+        return view('pages.users.employee.employee_list', compact('employees'));
     }
 
     /**
@@ -23,15 +24,27 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-       return view('pages.users.employee.create_emp');
+        return view('pages.users.employee.create_emp');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) : RedirectResponse
     {
-       
+
+        $data = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|string',
+            'position' => 'required|string',
+            'office' => 'required|string',
+            'role' => 'required|in:admin,manger ,team leader ,junior ,senior',
+            'age' => 'required|string',
+            'salary' => 'required|string'
+        ]);
+        Employee::create($data);
+        return redirect('EmployeeList')->with(['success' => 'Adding new employee successfuly']);
     }
 
     /**
@@ -55,7 +68,17 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|string',
+            'position' => 'required|string',
+            'role' => 'required|in:Admin ,manegr ,team leader , junior ,senior',
+            'age' => 'required|number',
+            'salary' => 'required|number'
+        ]);
+        Employee::where('id',$id)->update($data);
+        return redirect('pages.users.employee.employee_list')->with(['success' => 'Updating successfuly']);
     }
 
     /**
