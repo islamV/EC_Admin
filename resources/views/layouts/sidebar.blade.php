@@ -34,10 +34,10 @@
                                   </div>
                               </li>
                               <li class="nav-item">
-                                  <a class="nav-link" href="dashboard-finance.html">Finance</a>
+                                  <a class="nav-link" href="{{route('finance')}}">Finance</a>
                               </li>
                               <li class="nav-item">
-                                  <a class="nav-link" href="dashboard-sales.html">Sales</a>
+                                  <a class="nav-link" href="{{route('sales')}}">Sales</a>
                               </li>
                           
                           </ul>
@@ -66,11 +66,11 @@
                         <ul class="nav flex-column">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('EmployeeList.index')}}">Employee <span class="badge badge-success">New</span></a>
+                                <a class="nav-link" href="{{route('EmployeeList.index')}}">Employees<span class="badge badge-success">New</span></a>
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('CustomerList.index')}}">Customer <span class="badge badge-success">New</span></a>
+                                <a class="nav-link" href="{{route('CustomerList.index')}}">Customers <span class="badge badge-success">New</span></a>
                             </li>
                         </ul>
                     </div>

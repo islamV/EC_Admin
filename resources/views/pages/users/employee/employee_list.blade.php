@@ -14,8 +14,11 @@
                 <a href="{{ route('EmployeeList.create') }}" class="btn btn-rounded btn-primary">Add Employee</a>
             </div>
             @if (session('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Done!</strong> {{ session('success') }}!
+                    <a href="#" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </a>
                 </div>
             @endif
             <div class="card-body">
@@ -33,6 +36,7 @@
                                 <th>Age</th>
                                 <th>Salary</th>
                                 <th>Start date</th>
+                                <th>View Details</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -49,16 +53,25 @@
                                     <td>{{ $employee->salary }}</td>
                                     <td>{{ $employee->created_at }}</td>
                                     <td>
-                                        <a href="{{route('EmployeeList.show',['EmployeeList'=>$employee->id])}}" class="btn btn-sm btn-outline-primary">View</a>
-                                        <form action="">
-                                            <button class="btn btn-sm btn-outline-dark"type="submit"
-                                                name="edit">Edit</button>
-                                        </form>
-                                        <form action="">
+                                        <a href="{{ route('EmployeeList.show', ['EmployeeList' => $employee->id]) }}"
+                                            class="btn btn-sm btn-outline-primary">View Details</a>
+                                     
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('EmployeeList.edit', ['EmployeeList' => $employee->id]) }}"
+                                            class="btn btn-sm btn-outline-dark"><i
+                                            class="far fa-edit"></i></a>
+                                        <form action="{{route('EmployeeList.destroy',['EmployeeList'=>$employee->id])}}" method="post">
+                                            @csrf
+                                            @method('delete')
                                             <button class="btn btn-sm btn-outline-danger"type="submit" name='trash'> <i
-                                                    class="far fa-trash-alt"></i>
+                                                    class="far fa-trash-alt"></i></button>
                                         </form>
                                     </td>
+
+
+
+
                                 </tr>
                             @endforeach
                         </tbody>

@@ -13,9 +13,10 @@ class EmployeeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {        $employees = Employee::orderBy('created_at','desc')->get();
-        return view('pages.users.employee.employee_list', compact('employees'));
+    public function index(){        
+        $employees = Employee::get();
+        $namepage ="Employee list" ;
+        return view('pages.users.employee.employee_list', compact('employees','namepage') );
     }
 
     /**
@@ -49,18 +50,21 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
+    public function show(string $id){
         $employees = Employee::find($id);
-        
-        return view('pages.users.employee.view',compact('employees'));
+        $namepage ="profile" ;
+        return view('pages.users.employee.view',compact('employees','namepage') );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
+    public function edit(string $id){
+        $employee = Employee::find($id);
+        $namepage ="Edit" ;
+
+        return view('pages.users.employee.edit',compact('employee','namepage') );
+  
     }
 
     /**
@@ -73,12 +77,13 @@ class EmployeeController extends Controller
             'email' => 'required|email',
             'phone' => 'required|string',
             'position' => 'required|string',
-            'role' => 'required|in:Admin ,manegr ,team leader , junior ,senior',
-            'age' => 'required|number',
-            'salary' => 'required|number'
+            'role' => 'required|in:admin,manger,employee',
+            'age' => 'required|string',
+            'salary' => 'required|string'
         ]);
         Employee::where('id',$id)->update($data);
-        return redirect('pages.users.employee.employee_list')->with(['success' => 'Updating successfuly']);
+        $namepage ="list";
+        return redirect('Users/EmployeeList')->with(['success' => 'Updated successfuly','namepage '=>$namepage] );
     }
 
     /**
@@ -86,6 +91,8 @@ class EmployeeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+      $employee = Employee::where('id',$id)->delete();
+     return redirect('Users/EmployeeList')->with('success','Deleted successfuly');
+
     }
 }

@@ -23,6 +23,12 @@ Route::prefix('Users')->group(function () {
 });
 Route::prefix('dashbord')->group(function () {
     Route::resource('ProductList' ,'ProductController');
+    Route::get('finance' ,function(){
+        return view('pages.dashbord.finance');
+    })->name('finance');
+    Route::get('sales' ,function(){
+        return view('pages.dashbord.sales');
+    })->name('sales');
     
 });
 route::get('home' , function(){

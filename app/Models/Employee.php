@@ -13,11 +13,10 @@ class Employee extends Model
     {
         return $value . "$";
     }
-    public function getRoleAttribute($role)
-    {
+    public function getRoleAttribute($role){
         if ($role == 'admin') {
             ucfirst($role);
-            echo "<span class='label label-lg label-danger'>$role</span>";
+            echo "<span class='label label-danger'>$role</span>";
         } elseif ($role == "manger") {
             ucfirst($role);
             echo "<span class='label label-lg label-success'>$role</span>";

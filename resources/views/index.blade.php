@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{asset('app.css')}}">
     
-<title>@if (isset( $_REQUEST['namepage']))
-  {{ $_REQUEST['namepage']}}
-    @endif</title>
+<title>
+   </title>
 </head>
 <body>
       @include('layouts.header')
@@ -45,5 +44,55 @@
 <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
 <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
 <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+<!-- chart chartist js -->
+<script src="{{ asset('assets/vendor/charts/chartist-bundle/chartist.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/charts/chartist-bundle/Chartistjs.js') }}"></script>
+<script src="{{ asset('assets/vendor/charts/chartist-bundle/chartist-plugin-threshold.js') }}"></script>
+<!-- chart C3 js -->
+<script src="{{ asset('assets/vendor/charts/c3charts/c3.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/charts/c3charts/d3-5.4.0.min.js') }}"></script>
+<!-- chartjs js -->
+<script src="{{ asset('assets/vendor/charts/charts-bundle/Chart.bundle.js') }}"></script>
+<script src="{{ asset('assets/vendor/charts/charts-bundle/chartjs.js') }}"></script>
+<!-- sparkline js -->
+<script src="{{ asset('assets/vendor/charts/sparkline/jquery.sparkline.js') }}"></script>
+<!-- dashboard finance js -->
+<script src="{{ asset('assets/libs/js/dashboard-finance.js') }}"></script>
+<!-- main js -->
+<!-- gauge js -->
+<script src="{{ asset('assets/vendor/gauge/gauge.min.js') }}"></script>
+<!-- morris js -->
+<script src="{{ asset('assets/vendor/charts/morris-bundle/raphael.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/charts/morris-bundle/morris.js') }}"></script>
+<script src="{{ asset('assets/vendor/charts/morris-bundle/morrisjs.html') }}"></script>
+<!-- daterangepicker js -->
+<script src="{{ asset('cdn.jsdelivr.net/momentjs/latest/moment.min.js') }}"></script>
+<script src="{{ asset('cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js') }}"></script>
+
+<!-- chartjs js-->
+<script src="{{ asset('assets/vendor/charts/charts-bundle/Chart.bundle.js') }}"></script>
+<script src="{{ asset('assets/vendor/charts/charts-bundle/chartjs.js') }}"></script>
+
+<!-- main js-->
+<script src="{{ asset('assets/libs/js/main-js.js') }}"></script>
+<!-- jvactormap js-->
+<script src="{{ asset('assets/vendor/jvectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+<!-- sparkline js-->
+<script src="{{ asset('assets/vendor/charts/sparkline/jquery.sparkline.js') }}"></script>
+<script src="{{ asset('assets/vendor/charts/sparkline/spark-js.js') }}"></script>
+<!-- dashboard sales js-->
+<script src="{{ asset('assets/libs/js/dashboard-sales.js') }}"></script>
+
 
 </html>
+
+<script>
+$(function() {
+    $('input[name="daterange"]').daterangepicker({
+        opens: 'left'
+    }, function(start, end, label) {
+        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    });
+});
+</script>

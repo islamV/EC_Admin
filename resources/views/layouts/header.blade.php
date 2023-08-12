@@ -2,6 +2,7 @@
 <nav class="t-header">
     <div class="t-header-content-wrapper">
         <div class="t-header-content">
+            <a class="navbar-brand" href="{{route('dashbord')}}">islam</a>
             <ul class="nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="notificationDropdown" data-toggle="dropdown"
@@ -68,8 +69,9 @@
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                 aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">isalm</h5>
-                                    <span class="status"></span><span class="ml-2">Available</span>
+                                    <h5 class="mb-0 text-white nav-user-name">islam abdelkarim</h5>
+                                    
+                                    <span class="badge-dot badge-success mr-1"></span><span class="ml-2">Available</span>
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
