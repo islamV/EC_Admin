@@ -15,8 +15,7 @@ class EmployeeController extends Controller
      */
     public function index(){        
         $employees = Employee::get();
-        $namepage ="Employee list" ;
-        return view('pages.users.employee.employee_list', compact('employees','namepage') );
+        return view('pages.users.employee.employee_list', compact('employees') );
     }
 
     /**
@@ -39,7 +38,7 @@ class EmployeeController extends Controller
             'phone' => 'required|string',
             'position' => 'required|string',
             'office' => 'required|string',
-            'role' => 'required|in:admin,manger,employee',
+            'country' => 'required|string',
             'age' => 'required|string',
             'salary' => 'required|string'
         ]);
@@ -77,13 +76,13 @@ class EmployeeController extends Controller
             'email' => 'required|email',
             'phone' => 'required|string',
             'position' => 'required|string',
-            'role' => 'required|in:admin,manger,employee',
+            'office' => 'required|string',
+            'country' => 'required|string',
             'age' => 'required|string',
             'salary' => 'required|string'
         ]);
-        Employee::where('id',$id)->update($data);
-        $namepage ="list";
-        return redirect('Users/EmployeeList')->with(['success' => 'Updated successfuly','namepage '=>$namepage] );
+        Employee::where('id', $id)->update($data);
+        return redirect('Users/EmployeeList')->with(['success' => 'Updated  employee successfuly']);
     }
 
     /**

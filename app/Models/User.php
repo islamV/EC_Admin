@@ -20,6 +20,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'age',
+        'role',
+        'country',
+        'created_at',
         'password',
     ];
 
@@ -42,4 +47,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function setPasswordAttribute($value){
+    $this->attributes['password'] = bcrypt($value);
 }
+
+public function getCreatedAtAttribute($date){
+    return date("d/m/Y", strtotime($date));
+}
+};

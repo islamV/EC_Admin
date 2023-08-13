@@ -1,4 +1,7 @@
 @extends('index')
+@section('titel')
+finance 
+@endsection
 @section('content')
     <div class="row">
         <div class="offset-xl-10 col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12">

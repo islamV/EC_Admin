@@ -14,26 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('pages.welcome');
 })->name('dashbord');
 Route::prefix('Users')->group(function () {
-    
-    Route::resource('EmployeeList' ,'EmployeeController');
-    Route::resource('CustomerList' ,'UsersController');
+
+    Route::resource('EmployeeList', 'EmployeeController');
+    Route::resource('UsersList', 'UsersController');
 });
 Route::prefix('dashbord')->group(function () {
-    Route::resource('ProductList' ,'ProductController');
-    Route::get('finance' ,function(){
+    Route::resource('ProductList', 'ProductController');
+    Route::get('finance', function () {
         return view('pages.dashbord.finance');
     })->name('finance');
-    Route::get('sales' ,function(){
+    Route::get('sales', function () {
         return view('pages.dashbord.sales');
     })->name('sales');
-    
 });
-route::get('home' , function(){
+
+route::get('home', function () {
     return view('pages.home');
 })->name('home');
-Route::fallback(function(){
-return redirect('/');
+Route::fallback(function () {
+    return redirect('/');
 });

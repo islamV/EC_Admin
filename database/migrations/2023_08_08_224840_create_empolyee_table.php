@@ -16,12 +16,14 @@ return new class extends Migration
             $table->string("name");
             $table->string('position');
             $table->string('office');
-            $table->enum('role' ,['admin','manger','employee'])->nullable();
             $table->string('email');
             $table->string('phone');
+            $table->string('country');
             $table->string('age');
             $table->string('salary');
             $table->timestamps();
+            $table->string("image")->nullable();
+
         });
     }
     /**

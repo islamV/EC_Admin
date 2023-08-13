@@ -1,4 +1,7 @@
 @extends('index')
+@section('titel')
+product list
+@endsection
 @section('content')
  <!-- data table  -->
                     <!-- ============================================================== -->

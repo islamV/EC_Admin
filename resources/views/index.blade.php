@@ -1,25 +1,25 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{asset('app.css')}}">
-    
-<title>
-   </title>
+    <link rel="stylesheet" href="{{ asset('app.css') }}">
+
+    <title>@yield('titel')</title>
 </head>
+
 <body>
-      @include('layouts.header')
-<div class="dashboard-wrapper">
+    @include('layouts.header')
+    <div class="dashboard-wrapper">
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
-            {{-- @include('layouts.pageheader') --}}
-            @yield('content')
+                {{-- @include('layouts.pageheader') --}}
+                @yield('content')
 
+            </div>
         </div>
     </div>
-</div>
 
     @include('layouts.sidebar')
 
@@ -85,14 +85,21 @@
 <script src="{{ asset('assets/libs/js/dashboard-sales.js') }}"></script>
 
 
+<script src="https://cdn.tutorialjinni.com/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.tutorialjinni.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="https://g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/js/bootstrap-select-country.min.js">
+</script>
+
 </html>
 
 <script>
-$(function() {
-    $('input[name="daterange"]').daterangepicker({
-        opens: 'left'
-    }, function(start, end, label) {
-        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    $(function() {
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+        }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end
+                .format('YYYY-MM-DD'));
+        });
     });
-});
 </script>

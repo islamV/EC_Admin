@@ -1,6 +1,6 @@
 @extends('index')
 @section('titel')
-Employee list
+    Users list
 @endsection
 @section('content')
 
@@ -10,11 +10,11 @@ Employee list
 
             <div class="card-header">
 
-                <h5 class="mb-0">Employee List</h5>
+                <h5 class="mb-0">Users List</h5>
 
             </div>
             <div>
-                <a href="{{ route('EmployeeList.create') }}" class="btn btn-rounded btn-primary">Add Employee</a>
+                <a href="{{ route('UsersList.create') }}" class="btn btn-rounded btn-primary">Add Users</a>
             </div>
             @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -31,49 +31,48 @@ Employee list
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Position</th>
                                 <th>Email</th>
-                                <th>phone</th>
+                                <th>Phone </th>
                                 <th>Country</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Salary</th>
-                                <th>Start date</th>
+                                <th>Access Role </th>
+                                <th>Join At</th>
                                 <th>View Details</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($employees as $employee)
+                            @foreach ($users as $user)
                                 <tr>
-                                    <td>{{ $employee->name }}</td>
-                                    <td>{{ $employee->position }}</td>
-                                    <td>{{ $employee->email }}</td>
-                                    <td>{{ $employee->phone }}</td>
-                                    <td>{{ $employee->country }}</td>
-                                    <td>{{ $employee->office }}</td>
-                                    <td>{{ $employee->age }}</td>
-                                    <td>{{ $employee->salary }}</td>
-                                    <td>{{ $employee->created_at }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>{{ $user->country }}</td>
                                     <td>
-                                        <a href="{{ route('EmployeeList.show', ['EmployeeList' => $employee->id]) }}"
+                                        @if ($user->role == 'Admin')
+                                            <span class='label label-lg label-danger'>{{ $user->role }}</span>
+                                        @elseif ($user->role == 'Employee')
+                                            <span class='label label-lg label-success'>{{ $user->role }}</span>
+                                        @else
+                                            <span class='label label-lg label-primary'>{{ $user->role }}</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $user->created_at }}</td>
+                                    <td>
+                                        <a href="{{ route('UsersList.show', ['UsersList' => $user->id]) }}"
                                             class="btn btn-sm btn-outline-primary">View Details</a>
-                                     
+
                                     </td>
                                     <td>
-                                        <a href="{{ route('EmployeeList.edit', ['EmployeeList' => $employee->id]) }}"
-                                            class="btn btn-sm btn-outline-dark"><i
-                                            class="far fa-edit"></i></a>
-                                        <form action="{{route('EmployeeList.destroy',['EmployeeList'=>$employee->id])}}" method="post">
+                                        <a href="{{ route('UsersList.edit', ['UsersList' => $user->id]) }}"
+                                            class="btn btn-sm btn-outline-dark"><i class="far fa-edit"></i></a>
+                                        <form action="{{ route('UsersList.destroy', ['UsersList' => $user->id]) }}"
+                                            method="post">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-sm btn-outline-danger"type="submit" name='trash'> <i
                                                     class="far fa-trash-alt"></i></button>
                                         </form>
                                     </td>
-
-
-
 
                                 </tr>
                             @endforeach

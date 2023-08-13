@@ -1,7 +1,4 @@
 @extends('index')
-@section('titel')
-    Edit Employee
-@endsection
 @php
     $countries = [
          'Afghanistan',
@@ -248,21 +245,21 @@
          'Zambia',
          'Zimbabwe',
     ];
-    
-    $office = [ 'Cairo',  'Giza',  'United Arab Emirates',  'Germany',  'United States'];
-@endphp
 
+@endphp
+@section('titel')
+    Add User
+@endsection
 @section('content')
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="section-block" id="basicform">
-                <h3 class="section-title">Edit employee</h3>
+                <h3 class="section-title">Add new user</h3>
             </div>
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('EmployeeList.update', ['EmployeeL $employee->id]) }}" method="post">
+                    <form action="{{ route('UsersList.store') }}" method="post">
                         @csrf
-                        @method('PUT')
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -275,59 +272,51 @@
                         <div class="form-group">
                             <label for="inputText1" class="col-form-label">Full Name</label>
                             <input id="inputText1" type="text" class="form-control" name="name"
-                                value="{{ $employee->name }}">
+                                value="{{ old('name') }}">
                         </div>
                         <div class="form-group">
                             <label for="inputEmail">Email address</label>
                             <input id="inputEmail" type="email" placeholder="name@example.com" class="form-control"
-                                name="email" value="{{ $employee->email }}">
+                                name="email" value="{{ old('email') }}">
                         </div>
                         <div class="form-group">
                             <label for="inputText2" class="col-form-label">Phone Number </label>
                             <input id="inputText2" type="text" class="form-control" name="phone"
-                                value="{{ $employee->phone }}">
+                                value="{{ old('phone') }}">
                         </div>
                         <div class="form-group">
-                            <label for="inputText3" class="col-form-label">Position</label>
-                            <input id="inputText3" type="text" class="form-control" name="position"
-                                value="{{ $employee->position }}">
+                            <label for="inputText3" class="col-form-label">Age </label>
+                            <input id="inputText3" type="text" class="form-control" name="age"
+                                value="{{ old('age') }}">
                         </div>
-
                         <div class="form-group">
-                            <label for="input-select">Office</label>
-                            <select class="form-control" id="input-select" name="office">
-                                @foreach ($office as  $value)
-                                    <option @selected($employee->office == $value)value="{{ $value }}">{{ $value }}
-                                    </option>
-                                @endforeach
+                            <label for="input-select">Access Role </label>
+                            <select class="form-control" id="input-select" name="role">
+                  
+                                    <option value="Admin">Admin</option>
+                                    <option value="Employee">Employee</option>
+                                    <option value="User">User</option>
+                           
 
                             </select>
                         </div>
+                    
                         <div class="form-group">
                             <label for="input-select">Country</label>
                             <select class="form-control" id="input-select" name="country">
-
-                                @foreach ($countries as $country)
-                                    <option @selected($employee->country == $country) value="{{ $country }}">{{ $country }}
-                                    </option>
+                             
+                                @foreach ($countries as   $country )
+                                    <option value="{{ $country }}">{{  $country  }}</option>
                                 @endforeach
-
 
                             </select>
                         </div>
-
                         <div class="form-group">
-                            <label for="inputText3" class="col-form-label">age </label>
-                            <input id="inputText3" type="text" class="form-control" name="age"
-                                value="{{ $employee->age }}">
+                            <label for="inputText3" class="col-form-label">Password </label>
+                            <input id="inputText3" type="password" class="form-control" name="password">
                         </div>
-                        <label for="inputText3" class="col-form-label">Salary </label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                            <input type="text"name="salary" class="form-control" value="{{ $employee->salary }}">
-                            <div class="input-group-append"><span class="input-group-text">.00</span></div>
-                        </div>
-                        <button class="btn btn-rounded btn-success">Update</button>
+           
+                        <button class="btn btn-rounded btn-success">Add</button>
                     </form>
                 </div>
 

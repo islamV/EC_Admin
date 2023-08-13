@@ -1,4 +1,7 @@
 @extends('index')
+@section('titel')
+seles
+@endsection
 @section('content')
 
     <div class="row">
